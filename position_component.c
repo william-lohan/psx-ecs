@@ -1,4 +1,4 @@
-// #include "entity.h"
+#include "entity.h"
 #include "position_component.h"
 
 int sparse_positions[256]; // todo max components

@@ -8,7 +8,8 @@
         "types.h": "c",
         "double_buffer.h": "c",
         "entity.h": "c",
-        "position_component.h": "c"
+        "position_component.h": "c",
+        "tile_primative_component.h": "c"
     },
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
