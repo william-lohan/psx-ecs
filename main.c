@@ -43,6 +43,11 @@ int main()
 	return 0;
 }
 
+void updatePositions(PositionComponent *pos)
+{
+    pos->x = pos->x +1;
+}
+
 void init()
 {
     /* Reset the GPU, also installs a VSync event handler */
@@ -52,8 +57,10 @@ void init()
 
     e1 = create_entity();
     PositionComponent comp = { 5, 5 };
-    add_position_to_entity(&e1, &comp);
+    add_position_to_entity(e1, &comp);
     e2 = create_entity();
+
+    set_position_system(&updatePositions);
 
     // Load test font
     FntLoad(960, 0);
@@ -65,6 +72,8 @@ void init()
 void update(char *counter)
 {
 
+    update_position_system();
+
     // pos system
     PositionComponent* myPos = get_position(&e1);
 
@@ -72,9 +81,9 @@ void update(char *counter)
     // program isn't locking up to the last created text stream
     FntPrint(-1, "HELLO WORLD\n");
     FntPrint(-1, "COUNTER=%d\n", *counter);
-    FntPrint(-1, "E1=%d\n", e1);
-    FntPrint(-1, "E2=%d\n", e2);
-    FntPrint(-1, "pos=%d , %d\n", myPos->x, myPos->y);
+    FntPrint(-1, "E1=%d\n", e1); // see that entity is an int
+    FntPrint(-1, "E2=%d\n", e2); // see that entity is an int
+    FntPrint(-1, "pos=%d , %d\n", myPos->x, myPos->y); // see that we can get component from entity, and that a system can update it
 
     // setWH
 
