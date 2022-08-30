@@ -23,6 +23,7 @@ void init_double_buffer()
 
 	// Apply the drawing environment of the first double buffer
 	PutDrawEnv(&double_buffer[0].draw_environment);
+	PutDispEnv(&double_buffer[0].display_environment);
 
 	// Clear both ordering tables to make sure they are clean at the start
 	ClearOTagR(double_buffer[0].ordering_table, OT_LEN);
@@ -32,16 +33,28 @@ void init_double_buffer()
 	packet_address = double_buffer[0].packet_buffer;
 }
 
+void swap_buffers2()
+{
+	/* Apply display/drawing environments */
+	PutDrawEnv(&double_buffer[active_buffer].draw_environment);
+	PutDispEnv(&double_buffer[active_buffer].display_environment);
+	
+	/* Swap buffers */
+	active_buffer ^= 1;
+	packet_address = double_buffer[active_buffer].packet_buffer;
+
+}
+
 void swap_buffers()
 {
 	/* Swap buffers */
 	active_buffer ^= 1;
 	packet_address = double_buffer[active_buffer].packet_buffer;
+}
 
-	/* Clear the OT of the next frame */
-	ClearOTagR(double_buffer[active_buffer].ordering_table, OT_LEN);
-
+void put_buffers()
+{
 	/* Apply display/drawing environments */
-	PutDrawEnv(&double_buffer[active_buffer].display_environment);
+	PutDrawEnv(&double_buffer[active_buffer].draw_environment);
 	PutDispEnv(&double_buffer[active_buffer].display_environment);
 }

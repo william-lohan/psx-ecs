@@ -38,4 +38,6 @@ void init_double_buffer();
 
 void swap_buffers();
 
+void put_buffers();
+
 #endif // _DOUBLE_BUFFER_H

@@ -8,23 +8,22 @@
 #include "position_component.h"
 #include "tile_primative_component.h"
 
-// #define OT_LEN 8
-// #define SCREEN_XRES 320
-// #define SCREEN_YRES 240
+#define OT_LEN 8
+#define SCREEN_XRES 320
+#define SCREEN_YRES 240
 
 Entity e1;
 Entity e2;
 
 void init();
 
-void update(char *counter);
+void update(int *counter);
 
 void display();
 
 int main()
 {
-    TILE *tile;
-    char counter;
+    int counter;
 
     // Init stuff
     init();
@@ -73,8 +72,10 @@ void init()
     FntOpen(0, 8, 320, 224, 0, 100);
 }
 
-void update(char *counter)
+void update(int *counter)
 {
+    /* Clear the OT of the next frame */
+	ClearOTagR(double_buffer[active_buffer].ordering_table, OT_LEN);
 
     update_position_system();
 
@@ -98,16 +99,15 @@ void update(char *counter)
 
     draw_tile_primatives(double_buffer[active_buffer].ordering_table, double_buffer[active_buffer].packet_buffer);
 
-    // TODO dosn't draw ???? order of events?
-    DrawOTag(double_buffer[active_buffer].ordering_table + OT_LEN - 1);
 }
 
 void display()
 {
     DrawSync(0);
     VSync(0);
-    swap_buffers();
-
+    put_buffers();
     // Enable display output, ResetGraph() disables it by default
     SetDispMask(1);
+    DrawOTag(double_buffer[active_buffer].ordering_table + OT_LEN - 1);
+    swap_buffers();
 }
