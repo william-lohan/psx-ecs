@@ -34,10 +34,22 @@ static DoubleBuffer double_buffer[2];
 static int active_buffer = 0;
 static char *packet_address; /* Next packet pointer for primitive generation */
 
+/**
+ * @brief init double buffer setup
+ * 
+ */
 void init_double_buffer();
 
+/**
+ * @brief swap pointers for active frame
+ * 
+ */
 void swap_buffers();
 
+/**
+ * @brief put active draw and display
+ * 
+ */
 void put_buffers();
 
 #endif // _DOUBLE_BUFFER_H

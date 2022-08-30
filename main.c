@@ -7,6 +7,7 @@
 #include "entity.h"
 #include "position_component.h"
 #include "tile_primative_component.h"
+#include "color.h"
 
 #define OT_LEN 8
 #define SCREEN_XRES 320
@@ -59,7 +60,9 @@ void init()
     e1 = create_entity();
     PositionComponent comp = {5, 5};
     add_position_to_entity(e1, &comp);
-    TilePrimativeComponent tile = {10, 10, 255, 255, 0 };
+    
+    Color tileColor = MAGENTA;
+    TilePrimativeComponent tile = { .width = 10, .height = 10, .color = tileColor };
     add_tile_primative_to_entity(e1, &tile);
     e2 = create_entity();
 

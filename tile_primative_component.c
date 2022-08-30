@@ -44,7 +44,7 @@ void draw_tile_primatives(u_long *ordering_table, char *nextpri)
         setTile(tile);                                                    // Initialize the primitive (very important)
         setXY0(tile, pos->x, pos->y);                                     // Set primitive (x,y) position
         setWH(tile, component->width, component->height);                 // Set primitive size
-        setRGB0(tile, component->red, component->green, component->blue); // Set color yellow
+        setRGB0(tile, component->color.red, component->color.green, component->color.blue); // Set color yellow
         addPrim(ordering_table, tile);                                    // Add primitive to the ordering table
         nextpri += sizeof(TILE);                                          // Advance the next primitive pointer
     }
