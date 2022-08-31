@@ -2,6 +2,7 @@
 #include "disc.h"
 
 // redo using https://github.com/ABelliqueux/nolibgs_hello_worlds/tree/main/hello_cdda example
+// and https://github.com/ABelliqueux/nolibgs_hello_worlds/wiki/CDDA
 
 void init_disc()
 {
