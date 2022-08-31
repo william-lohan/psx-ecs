@@ -3,12 +3,13 @@
 #include <psxetc.h>
 #include <psxgte.h>
 #include <psxgpu.h>
+#include <psxcd.h>
 #include "double_buffer.h"
 #include "entity.h"
 #include "position_component.h"
 #include "tile_primative_component.h"
 #include "color.h"
-#include "disc.h"
+// #include "disc.h"
 
 #define OT_LEN 8
 #define SCREEN_XRES 320
@@ -29,6 +30,8 @@ int main()
 
     // Init stuff
     init();
+
+    // play_track(2);
 
     // Main loop
     counter = 0;
@@ -55,6 +58,9 @@ void init()
 {
     /* Reset the GPU, also installs a VSync event handler */
     ResetGraph(0);
+
+    // uncommenting the follwoing causes black screen
+    // CdInit();
 
     init_double_buffer();
 
