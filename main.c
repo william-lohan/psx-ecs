@@ -8,6 +8,7 @@
 #include "position_component.h"
 #include "tile_primative_component.h"
 #include "color.h"
+#include "disc.h"
 
 #define OT_LEN 8
 #define SCREEN_XRES 320

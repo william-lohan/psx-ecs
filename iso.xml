@@ -30,5 +30,5 @@
 		</directory_tree>
 	</track>
 
-	<!--<track type="audio" source="track2.wav" />-->
+	<track type="audio" source="${PROJECT_SOURCE_DIR}/track2.wav" />
 </iso_project>
