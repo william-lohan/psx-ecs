@@ -59,8 +59,7 @@ void init()
     /* Reset the GPU, also installs a VSync event handler */
     ResetGraph(0);
 
-    // uncommenting the follwoing causes black screen
-    // CdInit();
+    CdInit();
 
     init_double_buffer();
 

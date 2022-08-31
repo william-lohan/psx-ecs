@@ -1,5 +1,4 @@
 {
-    "makefile.extensionOutputFolder": "./.vscode",
     "files.associations": {
         "psxgte.h": "c",
         "psxgpu.h": "c",

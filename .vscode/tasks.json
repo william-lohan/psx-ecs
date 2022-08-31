@@ -1,0 +1,54 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cmake",
+            "label": "build",
+            "command": "build",
+            "targets": [
+                "all"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "type": "cmake",
+            "label": "clean",
+            "command": "clean",
+            "problemMatcher": []
+        },
+        {
+            "type": "cmake",
+            "label": "rebuild",
+            "command": "cleanRebuild",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "type": "shell",
+            "label": "open PCSX-Redux (debug)",
+            "command": "../PCSX-Redux-HEAD-x86_64.AppImage",
+            "args": [
+                "-debugger",
+                "-gdb"
+            ],
+            "problemMatcher": [],
+            "isBackground": true
+        },
+        {
+            "type": "shell",
+            "label": "open PCSX-Redux (iso)",
+            "command": "../PCSX-Redux-HEAD-x86_64.AppImage",
+            "args": [
+                "-iso",
+                "./build/psx-ecs.cue",
+                "-run"
+            ],
+            "problemMatcher": [],
+            "isBackground": true
+        }
+    ]
+}
